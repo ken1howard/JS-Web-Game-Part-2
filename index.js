@@ -8,12 +8,20 @@ function newImage(url, left, bottom){
     return object
 }
 
-function newItem(url, left, bottom){
+function newItem(url, left, bottom) {
     let item = newImage(url, left, bottom)
+    item.addEventListener ('click', function() { 
+        item.remove()
+        let item = document.createElement('img')
+    InventoryItem.src = url
+    inventory.append(InventoryItem)
+
+})
 }
 
+let inventory = document.createElement('div')
+
 function newInventory(){
-    let inventory = document.createElement('div')
     inventory.style.position = 'fixed'
     inventory.style.bottom = '0px';
     inventory.style.left = '0px'
@@ -35,6 +43,7 @@ newImage('assets/pillar.png', 350, 250)
 newImage('assets/pine-tree.png', 450, 350)
 newImage('assets/crate.png', 150, 350)
 newImage('assets/well.png', 500, 575)
+
 
 newItem('assets/sword.png', 500, 555)
 newItem('assets/shield.png', 165, 335)
